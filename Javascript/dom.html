@@ -12,17 +12,21 @@
         <input type="number" placeholder="enter your age"name="age" id ="age"/>
         <input type="submit" value="submit!" onclick="result()"/>
      </form>
+     <input type="text" placeholder="enter your name" id="inputdata"/>
+     <h2 id="text"></h2>
+     <button ondblclick="changecolor()">click on me!</button>
     <script>
-        function result(){
-            let myage=document.getElementbyid('age').value;
-            if (myage>=18){
-                alert("eligible");
-            } 
-            else {
-                alert("not eligible");
-            }
-        }
+        // 
+    
+
+    function changecolor(){
         
+        let inputvalue=document.getElementById("inputdata").value;
+        document.getElementById('text');
+
+    }
+
+
     </script>
     
 </body>
