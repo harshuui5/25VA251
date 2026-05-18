@@ -1,15 +1,16 @@
-import React from 'react'
-
-function Props() {
-  return (
-    
-    <div>
-    <p>NAME:{Props.name}</p>
-    <p>Rollno:{Props.rollno}</p>
+ import React from 'react'
+ import './StudentCard.css';
+ 
+ function StudentCard(props) {
+   return (
+         <div className="student-card">
+      <h2>Student Details</h2>
+      <p><strong>Name:</strong> {props.name}</p>
+      <p><strong>Course:</strong> {props.course}</p>
+      <p><strong>Marks:</strong> {props.marks}</p>
     </div>
 
-    
-  )
-}
-
-export default Props
+   )
+ }
+ 
+ export default StudentCard;
