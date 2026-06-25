@@ -73,6 +73,8 @@
   <script>
     function calculateResult() {
     
+
+    
       let marks = [
         parseInt(document.getElementById("sub1").value) || 0,
         parseInt(document.getElementById("sub2").value) || 0,
@@ -80,11 +82,13 @@
         parseInt(document.getElementById("sub4").value) || 0,
         parseInt(document.getElementById("sub5").value) || 0
       ];
+      
 
       
       let total = marks.reduce((a, b) => a + b, 0);
       let average = total / marks.length;
-      
+    
+
 
       
       let pass = marks.every(m => m >= 40);
@@ -93,7 +97,10 @@
       let output = document.getElementById("output");
       if (pass) {
         output.className = "result pass";
+        
         output.innerHTML = `Total: ${total}<br>Average: ${average.toFixed(2)}<br>Status: Pass 🎉`;
+    
+
       } else {
         output.className = "result fail";
         output.innerHTML = `Total: ${total}<br>Average: ${average.toFixed(2)}<br>Status: Fail ❌`;
