@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Result Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: whitesmoke;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background:whitesmoke;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border: 1px solid whitesmoke;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: skyblue;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: black;
+    }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .pass {
+      background: wheat;
+      color: green;
+    }
+    .fail {
+      background: peachpuff;
+      color: maroon;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Result Calculator</h2>
+    <input type="number" id="sub1" placeholder="Subject 1 Marks">
+    <input type="number" id="sub2" placeholder="Subject 2 Marks">
+    <input type="number" id="sub3" placeholder="Subject 3 Marks">
+    <input type="number" id="sub4" placeholder="Subject 4 Marks">
+    <input type="number" id="sub5" placeholder="Subject 5 Marks">
+    <button onclick="calculateResult()">Calculate</button>
+    <div id="output" class="result"></div>
+  </div>
+
+  <script>
+    function calculateResult() {
+    
+      let marks = [
+        parseInt(document.getElementById("sub1").value) || 0,
+        parseInt(document.getElementById("sub2").value) || 0,
+        parseInt(document.getElementById("sub3").value) || 0,
+        parseInt(document.getElementById("sub4").value) || 0,
+        parseInt(document.getElementById("sub5").value) || 0
+      ];
+
+      
+      let total = marks.reduce((a, b) => a + b, 0);
+      let average = total / marks.length;
+      
+
+      
+      let pass = marks.every(m => m >= 40);
+
+      
+      let output = document.getElementById("output");
+      if (pass) {
+        output.className = "result pass";
+        output.innerHTML = `Total: ${total}<br>Average: ${average.toFixed(2)}<br>Status: Pass 🎉`;
+      } else {
+        output.className = "result fail";
+        output.innerHTML = `Total: ${total}<br>Average: ${average.toFixed(2)}<br>Status: Fail ❌`;
+      }
+    }
+  </script>
+</body>
+</html>
